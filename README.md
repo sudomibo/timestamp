@@ -12,7 +12,7 @@ No rights reserved, released to the public domain.
 ## Quick Start on OBS
 For the full tutorial and documenation see https://openbuildservice.org/files/manuals/obs-user-guide.pdf
 
-Without further ado, and assuming you are running on openSUSE Tumbleweed, first add the `osc` tooling:
+Without further ado, and assuming you are running on openSUSE Tumbleweed, first install the `osc` tooling:
 
 ```bash
 zypper addrepo https://download.opensuse.org/repositories/openSUSE:/Tools/openSUSE_Tumbleweed/openSUSE:Tools.repo
@@ -25,13 +25,13 @@ chown abuild:abuild /home/abuild
 usermod -a -G trusted abuild
 ``` 
 
-To create the initial project and first release:
+To create the initial project and the first release:
 ```bash
 osc checkout home:mbozicevic
 cd home\:mbozicevic/
 osc mkpac timestamp
 cd timestamp
-wget https://github.com/sudomibo/timestamp/archive/refs/heads/main.zip #extract, and repack into a tar.gz
+wget https://github.com/sudomibo/timestamp/archive/refs/heads/main.tar.gz
 vi timestamp.spec # edit so that it matches https://github.com/sudomibo/timestamp/blob/main/build-recipes/obs/timestamp.spec
 osc vc
 osc add *.spec *.changes *.tar.gz
